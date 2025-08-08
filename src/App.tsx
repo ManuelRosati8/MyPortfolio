@@ -1,10 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
-import Header from '@/components/Header';
-import Hero from '@/pages/Hero';
-import About from '@/pages/About';
-import Portfolio from '@/pages/Portfolio';
-import Contact from '@/pages/Contact';
+import Header from './components/Header';
+import Hero from './pages/Hero';
+import About from './pages/About';
+import Portfolio from './pages/Portfolio';
+import Contact from './pages/Contact';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { type Engine } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
@@ -49,25 +49,33 @@ const App = () => {
       color: {
         value: '#f97316',
       },
+      links: {
+        color: '#ffffff',
+        distance: 150,
+        enable: true,
+        opacity: 0.3,
+        width: 1,
+      },
       move: {
         direction: 'none',
         enable: true,
         outModes: {
           default: 'out',
         },
-        random: false,
-        speed: 2,
+        random: true,
+        speed: 1,
         straight: false,
       },
       number: {
         density: {
           enable: true,
           height: 800,
+          width: 800
         },
-        value: 150,
+        value: 200,
       },
       opacity: {
-        value: 0.5,
+        value: { min: 0.1, max: 0.6 },
       },
       shape: {
         type: 'circle',
