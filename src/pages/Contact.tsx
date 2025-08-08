@@ -1,7 +1,7 @@
 import React from 'react';
-import { SOCIAL_LINKS } from '../constants';
-import Section from '../components/Section';
-import SocialIcon from '../components/SocialIcon';
+import { SOCIAL_LINKS } from '../../constants';
+import Section from '@/components/Section';
+import SocialIcon from '@/components/SocialIcon';
 
 const Contact = () => {
   return (

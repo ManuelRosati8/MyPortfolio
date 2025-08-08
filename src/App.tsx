@@ -1,10 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
-import Header from './components/Header';
-import Hero from './pages/Hero';
-import About from './pages/About';
-import Portfolio from './pages/Portfolio';
-import Contact from './pages/Contact';
+import Header from '@/components/Header';
+import Hero from '@/pages/Hero';
+import About from '@/pages/About';
+import Portfolio from '@/pages/Portfolio';
+import Contact from '@/pages/Contact';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { type Engine } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";

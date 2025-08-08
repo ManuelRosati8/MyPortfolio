@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
-import { PROJECTS } from '../constants';
-import { Project } from '../types';
-import Section from '../components/Section';
-import ProjectCard from '../components/ProjectCard';
-import ProjectModal from '../components/ProjectModal';
+import { PROJECTS } from '../../constants';
+import { Project } from '../../types';
+import Section from '@/components/Section';
+import ProjectCard from '@/components/ProjectCard';
+import ProjectModal from '@/components/ProjectModal';
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
