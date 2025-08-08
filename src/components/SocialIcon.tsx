@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -7,9 +6,11 @@ interface SocialIconProps {
   href: string;
 }
 
+const MotionA = motion.a;
+
 const SocialIcon = ({ icon: Icon, href }: SocialIconProps) => {
   return (
-    <motion.a
+    <MotionA
       href={href}
       target="_blank"
       rel="noopener noreferrer"
@@ -18,7 +19,7 @@ const SocialIcon = ({ icon: Icon, href }: SocialIconProps) => {
       transition={{ type: 'spring', stiffness: 300 }}
     >
       <Icon size={28} />
-    </motion.a>
+    </MotionA>
   );
 };
 

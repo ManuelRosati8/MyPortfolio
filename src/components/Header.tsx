@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { NAV_LINKS } from '../../constants';
 import { Menu, X } from 'lucide-react';
 
+const MotionDiv = motion.div;
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,7 +30,7 @@ const Header = () => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <nav className="container mx-auto px-6 py-4 flex justify-between items-center bg-gray-950/70 backdrop-blur-md border-b border-gray-800/50">
+        <nav className="container mx-auto px-6 py-4 flex justify-between items-center bg-black/70 backdrop-blur-md border-b border-gray-800/50">
           <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="text-xl font-bold text-white transition-colors hover:text-orange-500">
             <span className="text-orange-500">&lt;</span>ManuelRosati<span className="text-orange-500"> /&gt;</span>
           </a>
@@ -54,14 +56,14 @@ const Header = () => {
       </header>
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-gray-950/90 z-50 flex items-center justify-center md:hidden"
+            className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center md:hidden"
             onClick={toggleMenu} // Close when clicking the backdrop
           >
-            <motion.div
+            <MotionDiv
               className="flex flex-col items-center space-y-8"
               onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside menu content
             >
@@ -75,11 +77,11 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
-            </motion.div>
+            </MotionDiv>
             <button onClick={toggleMenu} className="absolute top-6 right-6 text-white focus:outline-none">
                 <X size={28} />
             </button>
-          </motion.div>
+          </MotionDiv>
         )}
       </AnimatePresence>
     </>

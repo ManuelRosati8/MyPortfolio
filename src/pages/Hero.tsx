@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const MotionDiv = motion.div;
+
 const Hero = () => {
     const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
       e.preventDefault();
@@ -16,8 +18,8 @@ const Hero = () => {
     };
 
   return (
-    <section id="home" className="h-screen flex items-center justify-center relative text-center overflow-hidden">
-      <motion.div
+    <section id="home" className="flex items-center justify-center relative text-center overflow-hidden px-6 pt-32 pb-16 md:pt-40 md:pb-24">
+      <MotionDiv
         className="z-10 relative"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -36,7 +38,7 @@ const Hero = () => {
         >
           Scopri i miei lavori
         </a>
-      </motion.div>
+      </MotionDiv>
     </section>
   );
 };
