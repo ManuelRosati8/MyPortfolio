@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: '/MyPortfolio/',            // <— fondamentale per GitHub Pages project site
+  base: '/',
   plugins: [react()],
   resolve: {
     alias: { '@': path.resolve(__dirname, 'src') }
