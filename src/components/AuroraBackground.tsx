@@ -25,27 +25,27 @@ import React, { useEffect, useRef } from 'react';
  * - I blob partono dal centro schermo per apparire subito (no scatto da 0,0)
  */
 
-// Configurazione dei 3 blob: velocità, offset spaziale, scala
+/*
+ * Configurazione dei 3 blob: velocità e scala
+ * Offset rimosso — ogni blob è centrato esattamente sul cursore.
+ * Il parallasse (profondità) è creato dalle diverse velocità lerp:
+ * il blob lento (speed basso) rimane indietro quando il mouse si muove,
+ * quello veloce lo segue quasi istantaneamente.
+ */
 const BLOB_CONFIG = [
   {
     // Blob 1: il più grande e lento → effetto "massa planetaria" lontana
     speed: 0.025,       // Fattore lerp (0.025 = si sposta del 2.5% verso il target ogni frame)
-    offsetX: 0.08,      // Offset orizzontale come frazione della larghezza viewport
-    offsetY: -0.10,     // Offset verticale (negativo = sopra il cursore)
     scale: 1.0,
   },
   {
     // Blob 2: medio → strato intermedio
     speed: 0.05,
-    offsetX: -0.06,
-    offsetY: 0.07,
     scale: 0.85,
   },
   {
     // Blob 3: il più piccolo e reattivo → sembra "vicino" al cursore
     speed: 0.09,
-    offsetX: 0.02,
-    offsetY: -0.03,
     scale: 0.7,
   },
 ];
@@ -69,19 +69,13 @@ const AuroraBackground = () => {
 
     /*
      * onMouseMove — chiamato a ogni movimento del mouse (con passive: true
-     * per non bloccare lo scroll). Calcola il target per ogni blob come:
-     *   target.x = mouse.x + offsetX * viewportWidth
-     *   target.y = mouse.y + offsetY * viewportHeight
-     * L'offset in frazione di viewport garantisce che l'effetto sia
-     * consistente su schermi di qualsiasi dimensione.
+     * per non bloccare lo scroll). Salva la posizione del mouse come target
+     * per tutti e 3 i blob (nessun offset — sono centrati sul cursore).
      */
     const onMouseMove = (e: MouseEvent) => {
-      const w = window.innerWidth;
-      const h = window.innerHeight;
-
-      targets.current = BLOB_CONFIG.map((cfg) => ({
-        x: e.clientX + cfg.offsetX * w,
-        y: e.clientY + cfg.offsetY * h,
+      targets.current = BLOB_CONFIG.map(() => ({
+        x: e.clientX,
+        y: e.clientY,
       }));
     };
 
@@ -125,7 +119,7 @@ const AuroraBackground = () => {
     };
 
     /*
-     * Inizializzazione: posiziona tutti i blob al centro schermo coi loro offset
+     * Inizializzazione: posiziona tutti i blob al centro schermo
      * così appaiono subito visibili invece di "scattare" da (0,0)
      */
     if (!initialized.current) {
@@ -133,11 +127,8 @@ const AuroraBackground = () => {
       const cy = window.innerHeight / 2;
 
       for (let i = 0; i < BLOB_CONFIG.length; i++) {
-        const cfg = BLOB_CONFIG[i];
-        const tx = cx + cfg.offsetX * window.innerWidth;
-        const ty = cy + cfg.offsetY * window.innerHeight;
-        positions.current[i] = { x: tx, y: ty };
-        targets.current[i] = { x: tx, y: ty };
+        positions.current[i] = { x: cx, y: cy };
+        targets.current[i] = { x: cx, y: cy };
       }
       initialized.current = true;
     }

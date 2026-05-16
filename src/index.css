@@ -34,7 +34,7 @@ body {
 
 /*
  * Blob 1 — Il più grande (700px), arancione vivo
- * Posizionato in alto a destra (offset +10%, -10% nella logica JS)
+ * Centrato sul cursore, movimento lento (speed 0.025)
  */
 .blob-1 {
   width: 700px;
@@ -46,7 +46,7 @@ body {
 
 /*
  * Blob 2 — Medio (600px), arancione scuro/ambrato
- * Posizionato in basso a sinistra
+ * Centrato sul cursore, velocità intermedia (speed 0.05)
  */
 .blob-2 {
   width: 600px;
@@ -58,7 +58,7 @@ body {
 
 /*
  * Blob 3 — Il più piccolo (500px), arancione profondo
- * Vicino al cursore, più reattivo
+ * Centrato sul cursore, il più reattivo (speed 0.09)
  */
 .blob-3 {
   width: 500px;
