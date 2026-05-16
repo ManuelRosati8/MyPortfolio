@@ -28,10 +28,10 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
       >
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight" style={{ color: 'var(--color-text)' }}>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
           {t('hero.greeting')} <span className="text-orange-500">{t('hero.name')}</span>.
         </h1>
-        <p className="text-lg md:text-2xl max-w-3xl mx-auto mb-8" style={{ color: 'var(--color-text-secondary)' }}>
+        <p className="text-lg md:text-2xl text-neutral-300 max-w-3xl mx-auto mb-8">
           {t('hero.tagline')}
         </p>
         <a

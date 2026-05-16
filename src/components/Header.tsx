@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
 import { useT } from '../i18n/useTranslation';
 
@@ -39,13 +38,12 @@ const Header = () => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <nav className="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center" style={{ backgroundColor: 'var(--color-nav-bg)', backdropFilter: 'blur(12px)', borderBottom: '1px solid var(--color-nav-border)' }}>
-          <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="text-lg sm:text-xl font-bold transition-colors hover:text-orange-500" style={{ color: 'var(--color-text)' }}>
+        <nav className="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center bg-black/70 backdrop-blur-md border-b border-gray-800/50">
+          <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="text-lg sm:text-xl font-bold text-white transition-colors hover:text-orange-500">
             <span className="text-orange-500">&lt;</span>ManuelRosati<span className="text-orange-500"> /&gt;</span>
           </a>
 
           <div className="flex items-center gap-1 sm:gap-2">
-            <ThemeToggle />
             <LanguageToggle />
 
             <div className="hidden md:flex items-center space-x-6 ml-3">
@@ -54,17 +52,16 @@ const Header = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className="text-sm transition-colors duration-300 relative group cursor-pointer"
-                  style={{ color: 'var(--color-text-secondary)' }}
+                  className="text-sm text-neutral-300 hover:text-orange-500 transition-colors duration-300 relative group cursor-pointer"
                 >
-                  <span className="group-hover:text-orange-500 transition-colors">{link.name}</span>
+                  {link.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
             </div>
 
             <div className="md:hidden ml-1">
-              <button onClick={toggleMenu} className="focus:outline-none p-1.5 rounded-lg hover:bg-neutral-800/50 transition-colors" style={{ color: 'var(--color-text)' }} aria-label="Menu">
+              <button onClick={toggleMenu} className="text-white focus:outline-none p-1.5 rounded-lg hover:bg-neutral-800/50 transition-colors" aria-label="Menu">
                 <Menu size={22} />
               </button>
             </div>
@@ -81,7 +78,6 @@ const Header = () => {
             onClick={toggleMenu}
           >
             <div className="flex items-center gap-4 mb-6">
-              <ThemeToggle />
               <LanguageToggle />
             </div>
             <MotionDiv

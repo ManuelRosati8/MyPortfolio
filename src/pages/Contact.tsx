@@ -10,10 +10,10 @@ const Contact = () => {
   return (
     <Section id="contact">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold" style={{ color: 'var(--color-text)' }}>
+        <h2 className="text-3xl md:text-4xl font-bold text-white">
           {t('contact.heading')}<span className="text-orange-500">.</span>
         </h2>
-        <p className="mt-4 max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
+        <p className="text-neutral-400 mt-4 max-w-2xl mx-auto">
           {t('contact.subtext')}
         </p>
       </div>

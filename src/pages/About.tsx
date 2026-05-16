@@ -9,10 +9,10 @@ const About = () => {
   return (
     <Section id="about">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: 'var(--color-text)' }}>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
           {t('about.heading')}<span className="text-orange-500">.</span>
         </h2>
-        <div className="space-y-4 leading-relaxed text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+        <div className="space-y-4 text-neutral-300 leading-relaxed text-lg">
           <p>
             {t('about.p1')}
           </p>

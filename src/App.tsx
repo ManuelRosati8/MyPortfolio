@@ -1,6 +1,5 @@
 
 import React, { useEffect, useState } from 'react';
-import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import Header from './components/Header';
 import Hero from './pages/Hero';
@@ -78,7 +77,7 @@ const AppContent = () => {
           height: 800,
           width: 800
         },
-        value: 80,
+        value: 150,
       },
       opacity: {
         value: { min: 0.1, max: 0.6 },
@@ -94,7 +93,7 @@ const AppContent = () => {
   } as const;
 
   return (
-    <div className="font-sans min-h-screen" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <div className="font-sans min-h-screen bg-[#0a0a0a]">
        {init && <Particles
         id="tsparticles"
         options={particlesOptions}
@@ -115,11 +114,9 @@ const AppContent = () => {
 
 const App = () => {
   return (
-    <ThemeProvider>
-      <LanguageProvider>
-        <AppContent />
-      </LanguageProvider>
-    </ThemeProvider>
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 };
 
