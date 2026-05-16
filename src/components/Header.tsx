@@ -54,7 +54,7 @@ const Header = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className="text-sm text-neutral-600 dark:text-neutral-300 hover:text-orange-500 dark:hover:text-orange-500 transition-colors duration-300 relative group cursor-pointer"
+                  className="text-sm text-neutral-700 dark:text-neutral-200 hover:text-orange-500 dark:hover:text-orange-500 transition-colors duration-300 relative group cursor-pointer"
                 >
                   {link.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>

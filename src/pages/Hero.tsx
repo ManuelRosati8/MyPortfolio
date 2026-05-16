@@ -31,7 +31,7 @@ const Hero = () => {
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-neutral-900 dark:text-white mb-4 leading-tight">
           {t('hero.greeting')} <span className="text-orange-500">{t('hero.name')}</span>.
         </h1>
-        <p className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto mb-8">
+        <p className="text-lg md:text-2xl text-neutral-800 dark:text-neutral-200 max-w-3xl mx-auto mb-8">
           {t('hero.tagline')}
         </p>
         <a

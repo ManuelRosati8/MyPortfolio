@@ -8,7 +8,7 @@ const LanguageToggle = () => {
   return (
     <motion.button
       onClick={toggleLang}
-      className="flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs font-mono font-bold text-neutral-500 dark:text-neutral-400 hover:text-orange-500 hover:bg-neutral-100 dark:hover:bg-neutral-800/50 transition-colors border border-neutral-200 dark:border-neutral-800 hover:border-orange-500/30 dark:hover:border-orange-500/30"
+      className="flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs font-mono font-bold text-neutral-600 dark:text-neutral-200 hover:text-orange-500 hover:bg-neutral-100 dark:hover:bg-neutral-800/50 transition-colors border border-neutral-200 dark:border-neutral-800 hover:border-orange-500/30 dark:hover:border-orange-500/30"
       whileTap={{ scale: 0.95 }}
       title={lang === 'it' ? 'Switch to English' : 'Passa a Italiano'}
       aria-label={lang === 'it' ? 'Switch to English' : 'Passa a Italiano'}

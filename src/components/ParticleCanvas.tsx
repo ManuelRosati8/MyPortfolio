@@ -74,9 +74,9 @@ const ParticleCanvas = () => {
     window.addEventListener('mousemove', onMouse);
 
     const dark = theme === 'dark';
-    const dotColor = dark ? '249,115,22' : '23,23,23';
+    const dotColor = '249,115,22';
     const lineColor = dark ? '255,255,255' : '23,23,23';
-    const sparkColor = dark ? '249,115,22' : '23,23,23';
+    const sparkColor = '249,115,22';
 
     const draw = () => {
       if (!ctx || !canvas) return;
@@ -121,7 +121,7 @@ const ParticleCanvas = () => {
 
         ctx.beginPath();
         ctx.arc(n.x, n.y, 1.5 + glowAlpha * 3, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${dotColor},${0.1 + glowAlpha * 0.8})`;
+        ctx.fillStyle = `rgba(${dotColor},${0.07 + glowAlpha * 0.8})`;
         ctx.fill();
       }
 
