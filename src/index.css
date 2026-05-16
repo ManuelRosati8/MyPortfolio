@@ -7,97 +7,63 @@ body {
   color: #e5e5e5;
 }
 
+/*
+ * Aurora Background — Stili per i 3 blob gradienti dello sfondo dinamico
+ *
+ * .aurora-blob:
+ *   - position: absolute per il posizionamento libero nel contenitore
+ *   - border-radius: 50% per forma circolare
+ *   - filter: blur(100px+) crea l'effetto "alone" sfocato tipo nebulosa
+ *   - will-change: transform suggerisce al browser di promuovere l'elemento
+ *     al compositor layer (GPU) per animazioni fluide
+ *   - opacity e transition per il cambio tema chiaro/scuro
+ *   - mix-blend-mode: screen in dark mode fa "brillare" i blob sul nero
+ *   - NOTA: rimossi @keyframes — il movimento è gestito da rAF in AuroraBackground.tsx
+ */
+
 .aurora-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
   will-change: transform;
-  opacity: 0.35;
   transition: opacity 0.6s ease;
 }
 
 .dark .aurora-blob {
-  opacity: 0.35;
+  mix-blend-mode: screen;
 }
 
+/*
+ * Blob 1 — Il più grande (700px), arancione vivo
+ * Posizionato in alto a destra (offset +10%, -10% nella logica JS)
+ */
 .blob-1 {
   width: 700px;
   height: 700px;
   background: radial-gradient(circle at center, #f97316 0%, transparent 70%);
-  top: -10%;
-  left: 10%;
-  animation: aurora-float-1 22s ease-in-out infinite;
+  filter: blur(100px);
+  opacity: 0.35;
 }
 
+/*
+ * Blob 2 — Medio (600px), arancione scuro/ambrato
+ * Posizionato in basso a sinistra
+ */
 .blob-2 {
   width: 600px;
   height: 600px;
   background: radial-gradient(circle at center, #ea580c 0%, transparent 65%);
-  bottom: -5%;
-  right: 5%;
-  animation: aurora-float-2 28s ease-in-out infinite;
   filter: blur(120px);
+  opacity: 0.3;
 }
 
+/*
+ * Blob 3 — Il più piccolo (500px), arancione profondo
+ * Vicino al cursore, più reattivo
+ */
 .blob-3 {
   width: 500px;
   height: 500px;
   background: radial-gradient(circle at center, #c2410c 0%, transparent 70%);
-  top: 40%;
-  left: 40%;
-  animation: aurora-float-3 34s ease-in-out infinite;
   filter: blur(90px);
-}
-
-@keyframes aurora-float-1 {
-  0%, 100% {
-    translate: 0% 0%;
-    scale: 1;
-  }
-  25% {
-    translate: 15% -10%;
-    scale: 1.15;
-  }
-  50% {
-    translate: -5% 20%;
-    scale: 0.9;
-  }
-  75% {
-    translate: -10% -5%;
-    scale: 1.05;
-  }
-}
-
-@keyframes aurora-float-2 {
-  0%, 100% {
-    translate: 0% 0%;
-    scale: 1;
-  }
-  33% {
-    translate: -8% 15%;
-    scale: 1.1;
-  }
-  66% {
-    translate: 12% -8%;
-    scale: 0.85;
-  }
-}
-
-@keyframes aurora-float-3 {
-  0%, 100% {
-    translate: 0% 0%;
-    scale: 1;
-  }
-  20% {
-    translate: -12% -12%;
-    scale: 1.2;
-  }
-  50% {
-    translate: 10% 10%;
-    scale: 0.8;
-  }
-  80% {
-    translate: -5% 5%;
-    scale: 1.08;
-  }
+  opacity: 0.28;
 }
