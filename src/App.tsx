@@ -27,7 +27,7 @@ const App = () => {
         value: '#0a0a0a',
       },
     },
-    fpsLimit: 120,
+    fpsLimit: 60,
     interactivity: {
       events: {
         onHover: {
@@ -72,7 +72,7 @@ const App = () => {
           height: 800,
           width: 800
         },
-        value: 200,
+        value: 80,
       },
       opacity: {
         value: { min: 0.1, max: 0.6 },

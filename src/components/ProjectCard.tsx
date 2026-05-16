@@ -1,44 +1,114 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Project } from '../../types';
-import { ArrowRight } from 'lucide-react';
+import { ChevronDown, ExternalLink, Github } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
-  onCardClick: (project: Project) => void;
 }
 
 const MotionDiv = motion.div;
-const MotionH3 = motion.h3;
+const MotionButton = motion.button;
 
-const ProjectCard = ({ project, onCardClick }: ProjectCardProps) => {
+const ProjectCard = ({ project }: ProjectCardProps) => {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <MotionDiv
-      layoutId={`card-container-${project.id}`}
-      onClick={() => onCardClick(project)}
-      className="bg-orange-600 rounded-lg overflow-hidden cursor-pointer group border border-orange-700 hover:border-orange-400 transition-colors duration-300 relative"
-      whileHover={{ y: -8 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      layout
+      className="relative border border-neutral-800 rounded-xl overflow-hidden bg-neutral-900/60 backdrop-blur-sm hover:border-orange-500/40 transition-colors duration-300 cursor-pointer group"
+      onClick={() => setExpanded(!expanded)}
+      whileHover={{ y: -2 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
     >
-      <div className="relative overflow-hidden">
-        <div className="w-full h-48 bg-white flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-            <span className="text-8xl font-bold text-black select-none">{project.id}.</span>
-        </div>
-      </div>
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
       <div className="p-6">
-        <MotionH3 className="text-xl font-bold text-white mb-2">{project.title}</MotionH3>
-        <p className="text-orange-100 mb-4 text-sm">{project.description}</p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xs font-mono text-orange-500 bg-orange-500/10 px-2 py-0.5 rounded">
+                {String(project.id).padStart(2, '0')}
+              </span>
+              {project.liveUrl && (
+                <span className="text-[10px] font-mono text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded uppercase tracking-wider">
+                  Live
+                </span>
+              )}
+            </div>
+            <h3 className="text-lg font-bold text-white group-hover:text-orange-400 transition-colors duration-300 truncate">
+              {project.title}
+            </h3>
+            <p className="text-neutral-400 text-sm mt-1.5 line-clamp-2">
+              {project.description}
+            </p>
+          </div>
+          <MotionButton
+            className="flex-shrink-0 mt-1 text-neutral-600 group-hover:text-orange-500 transition-colors"
+            animate={{ rotate: expanded ? 180 : 0 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+          >
+            <ChevronDown size={20} />
+          </MotionButton>
+        </div>
+
+        <div className="flex flex-wrap gap-1.5 mt-4">
           {project.tags.map((tag) => (
-            <span key={tag} className="bg-black/20 text-white text-xs font-mono px-2 py-1 rounded">
+            <span
+              key={tag}
+              className="bg-neutral-800 text-neutral-300 text-[11px] font-mono px-2 py-0.5 rounded"
+            >
               {tag}
             </span>
           ))}
         </div>
       </div>
-       <div className="absolute top-4 right-4 bg-black/25 rounded-full p-2 translate-x-12 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-          <ArrowRight className="text-white" size={20} />
-      </div>
+
+      <AnimatePresence initial={false}>
+        {expanded && (
+          <MotionDiv
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-6 pt-0 border-t border-neutral-800/50">
+              <div className="pt-4">
+                <p className="text-neutral-300 text-sm leading-relaxed">
+                  {project.longDescription}
+                </p>
+                <div className="flex flex-wrap items-center gap-3 mt-4">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-orange-600 text-white text-sm font-medium rounded-md hover:bg-orange-700 transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ExternalLink size={14} />
+                      Live Demo
+                    </a>
+                  )}
+                  {project.repoUrl && (
+                    <a
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-neutral-800 text-neutral-300 text-sm font-medium rounded-md hover:bg-neutral-700 transition-colors border border-neutral-700"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Github size={14} />
+                      Repository
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </MotionDiv>
+        )}
+      </AnimatePresence>
     </MotionDiv>
   );
 };

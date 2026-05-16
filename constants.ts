@@ -15,6 +15,16 @@ export const SOCIAL_LINKS = [
 export const PROJECTS: Project[] = [
   {
     id: 1,
+    title: 'Financerox — Gestione Finanze Personali',
+    description: 'App full-stack per la gestione delle finanze personali con calendario, pianificazione obiettivi e analisi delle spese ricorrenti.',
+    longDescription: 'Ho sviluppato un\'applicazione completa per la gestione delle finanze personali. Include un calendario interattivo per tracciare entrate e uscite, una sezione "Future Self" per simulare scenari finanziari futuri, gestione delle ricorrenze (entrate/uscite periodiche), e un sistema di pianificazione obiettivi con monitoraggio dei progressi.',
+    tags: ['React', 'TypeScript', 'Full-Stack', 'Finance'],
+    imageUrl: 'https://picsum.photos/seed/financerox/600/400',
+    repoUrl: 'https://github.com/ManuelRosati8',
+    liveUrl: 'https://www.financerox.finance',
+  },
+  {
+    id: 2,
     title: 'Piattaforma Legale per la PA',
     description: 'Sistema a microservizi per la gestione digitale di processi legali e amministrativi complessi.',
     longDescription: 'Ho guidato lo sviluppo frontend di una piattaforma web per la Pubblica Amministrazione, basata su un\'architettura a microservizi per gestire ricorsi, notifiche e documenti legali. Il sistema, realizzato in Angular, automatizza i flussi di lavoro, il tracciamento dei casi e la gestione dei pagamenti.',
@@ -23,7 +33,7 @@ export const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/ManuelRosati8',
   },
   {
-    id: 2,
+    id: 3,
     title: 'App Mobile per Trasporti Pubblici',
     description: 'App ibrida per pianificazione viaggi, acquisto biglietti e gestione di un portafoglio digitale.',
     longDescription: 'Ho implementato un\'applicazione ibrida (Ionic/Angular) per la pianificazione di viaggi. L\'app integra le API di Google Maps per calcolare percorsi e costi, e include un wallet digitale per incentivi e acquisti, offrendo un\'esperienza utente completa e integrata.',
@@ -32,7 +42,7 @@ export const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/ManuelRosati8',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Gestionale Aziendale Modulare',
     description: 'Applicazione web per la gestione di onboarding, clienti, fornitori, progetti e asset.',
     longDescription: 'Ho sviluppato una web app con backend a microservizi per semplificare i flussi di lavoro aziendali. Ho realizzato moduli per la gestione di asset, risorse, attività e progetti, e condotto test component e E2E con Cypress per assicurare la massima affidabilità del software.',
@@ -41,7 +51,7 @@ export const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/ManuelRosati8',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Piattaforma di Equity Crowdfunding',
     description: 'Piattaforma di investimento per facilitare l\'accesso al mercato dei capitali per startup e PMI.',
     longDescription: 'Ho sviluppato il frontend di una piattaforma che connette investitori con startup e PMI in cerca di capitali. L\'applicazione, realizzata con Angular e Material Design, consente agli utenti di analizzare e investire in aziende con piani di business solidi.',
@@ -50,7 +60,7 @@ export const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/ManuelRosati8',
   },
   {
-    id: 5,
+    id: 6,
     title: 'Portale Fornitori e Gestione Bandi',
     description: 'Sistemi web per la gestione di richieste fornitori e la consultazione di bandi europei.',
     longDescription: 'Ho creato due portali distinti: uno per la gestione delle richieste dei fornitori, con gestione ruoli e notifiche, e un altro per lo scouting di bandi europei e regionali, dotato di ricerca avanzata e funzionalità di preferiti per semplificare l\'accesso ai fondi.',
@@ -59,7 +69,7 @@ export const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/ManuelRosati8',
   },
   {
-    id: 6,
+    id: 7,
     title: 'Proof of Concept per la Mobilità',
     description: 'PoC per il calcolo di percorsi multimodali e la pianificazione di itinerari con veicoli ecologici.',
     longDescription: 'Ho sviluppato due PoC utilizzando Ionic e Angular. Il primo calcolava percorsi e costi dei biglietti integrando le API di Google Maps. Il secondo si focalizzava sulla pianificazione di percorsi per veicoli ecologici, includendo la guida vocale per un\'esperienza innovativa.',
