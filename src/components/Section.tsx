@@ -14,10 +14,10 @@ const Section = ({ children, id, className = '' }: SectionProps) => {
     <MotionSection
       id={id}
       className={`container mx-auto px-6 py-20 md:py-32 ${className}`}
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
     >
       {children}
     </MotionSection>

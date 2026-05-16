@@ -7,7 +7,7 @@ import Hero from './pages/Hero';
 import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
-import ParticleCanvas from './components/ParticleCanvas';
+import AuroraBackground from './components/AuroraBackground';
 
 const AppContent = () => {
   const { t } = useLanguage();
@@ -18,7 +18,7 @@ const AppContent = () => {
 
   return (
     <div className="font-sans min-h-screen bg-neutral-50 dark:bg-[#0a0a0a] transition-colors duration-300">
-      <ParticleCanvas />
+      <AuroraBackground />
       <div className="relative z-10">
         <Header />
         <main>
