@@ -23,7 +23,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <MotionDiv
       layout
-      className="relative border border-neutral-800 rounded-xl overflow-hidden bg-neutral-900/60 backdrop-blur-sm hover:border-orange-500/40 transition-colors duration-300 cursor-pointer group"
+      className="relative border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden bg-white dark:bg-neutral-900/60 backdrop-blur-sm hover:border-orange-500/40 dark:hover:border-orange-500/40 transition-colors duration-300 cursor-pointer group"
       onClick={() => setExpanded(!expanded)}
       whileHover={{ y: -2 }}
       transition={{ type: 'spring', stiffness: 400, damping: 25 }}
@@ -43,15 +43,15 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 </span>
               )}
             </div>
-            <h3 className="text-lg font-bold text-white group-hover:text-orange-400 transition-colors duration-300 truncate">
+            <h3 className="text-lg font-bold text-neutral-900 dark:text-white group-hover:text-orange-400 transition-colors duration-300 truncate">
               {title}
             </h3>
-            <p className="text-neutral-400 text-sm mt-1.5 line-clamp-2">
+            <p className="text-neutral-500 dark:text-neutral-400 text-sm mt-1.5 line-clamp-2">
               {description}
             </p>
           </div>
           <MotionButton
-            className="flex-shrink-0 mt-1 text-neutral-600 group-hover:text-orange-500 transition-colors"
+            className="flex-shrink-0 mt-1 text-neutral-300 dark:text-neutral-600 group-hover:text-orange-500 transition-colors"
             animate={{ rotate: expanded ? 180 : 0 }}
             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
           >
@@ -63,7 +63,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="bg-neutral-800 text-neutral-300 text-[11px] font-mono px-2 py-0.5 rounded"
+              className="bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-[11px] font-mono px-2 py-0.5 rounded"
             >
               {tag}
             </span>
@@ -80,9 +80,9 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             transition={{ duration: 0.25, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-6 pt-0 border-t border-neutral-800/50">
+            <div className="px-6 pb-6 pt-0 border-t border-neutral-200 dark:border-neutral-800/50">
               <div className="pt-4">
-                <p className="text-neutral-300 text-sm leading-relaxed">
+                <p className="text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed">
                   {longDescription}
                 </p>
                 <div className="flex flex-wrap items-center gap-3 mt-4">
@@ -103,7 +103,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                       href={project.repoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-neutral-800 text-neutral-300 text-sm font-medium rounded-md hover:bg-neutral-700 transition-colors border border-neutral-700"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-sm font-medium rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors border border-neutral-200 dark:border-neutral-700"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <Github size={14} />

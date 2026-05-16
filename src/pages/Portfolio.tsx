@@ -11,10 +11,10 @@ const Portfolio = () => {
   return (
     <Section id="portfolio">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white">
           {t('portfolio.heading')}<span className="text-orange-500">.</span>
         </h2>
-        <p className="text-neutral-400 mt-4 max-w-2xl mx-auto">
+        <p className="text-neutral-500 dark:text-neutral-400 mt-4 max-w-2xl mx-auto">
           {t('portfolio.subtext')}
         </p>
       </div>

@@ -9,10 +9,10 @@ const About = () => {
   return (
     <Section id="about">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-6">
           {t('about.heading')}<span className="text-orange-500">.</span>
         </h2>
-        <div className="space-y-4 text-neutral-300 leading-relaxed text-lg">
+        <div className="space-y-4 text-neutral-600 dark:text-neutral-300 leading-relaxed text-lg">
           <p>
             {t('about.p1')}
           </p>
@@ -33,14 +33,14 @@ const About = () => {
         </div>
 
         <div className="flex flex-wrap gap-3 sm:gap-4 mt-8 justify-center">
-            <span className="bg-gray-800 text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">Angular</span>
-            <span className="bg-gray-800 text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">TypeScript</span>
-            <span className="bg-gray-800 text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">Ionic</span>
-            <span className="bg-gray-800 text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">Micro-frontend</span>
-            <span className="bg-gray-800 text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">Java</span>
-            <span className="bg-gray-800 text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">Cypress</span>
-            <span className="bg-gray-800 text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">GIT</span>
-            <span className="bg-gray-800 text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">Google Maps API</span>
+            <span className="bg-neutral-100 dark:bg-gray-800 text-orange-600 dark:text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">Angular</span>
+            <span className="bg-neutral-100 dark:bg-gray-800 text-orange-600 dark:text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">TypeScript</span>
+            <span className="bg-neutral-100 dark:bg-gray-800 text-orange-600 dark:text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">Ionic</span>
+            <span className="bg-neutral-100 dark:bg-gray-800 text-orange-600 dark:text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">Micro-frontend</span>
+            <span className="bg-neutral-100 dark:bg-gray-800 text-orange-600 dark:text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">Java</span>
+            <span className="bg-neutral-100 dark:bg-gray-800 text-orange-600 dark:text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">Cypress</span>
+            <span className="bg-neutral-100 dark:bg-gray-800 text-orange-600 dark:text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">GIT</span>
+            <span className="bg-neutral-100 dark:bg-gray-800 text-orange-600 dark:text-orange-400 py-1.5 px-4 rounded-full text-sm font-mono">Google Maps API</span>
         </div>
       </div>
     </Section>
