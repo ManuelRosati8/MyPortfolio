@@ -2,16 +2,19 @@ import React from 'react';
 import { SOCIAL_LINKS } from '../../constants';
 import Section from '@/components/Section';
 import SocialIcon from '@/components/SocialIcon';
+import { useT } from '../i18n/useTranslation';
 
 const Contact = () => {
+  const { t } = useT();
+
   return (
     <Section id="contact">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-white">
-          Trovami Online<span className="text-orange-500">.</span>
+        <h2 className="text-3xl md:text-4xl font-bold" style={{ color: 'var(--color-text)' }}>
+          {t('contact.heading')}<span className="text-orange-500">.</span>
         </h2>
-        <p className="text-neutral-400 mt-4 max-w-2xl mx-auto">
-          Dai un'occhiata al mio profilo GitHub per vedere i miei progetti e connettiamoci su LinkedIn. Sono sempre aperto a nuove sfide e collaborazioni.
+        <p className="mt-4 max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
+          {t('contact.subtext')}
         </p>
       </div>
       <div className="flex justify-center items-center gap-8">

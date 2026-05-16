@@ -1,5 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import Header from './components/Header';
 import Hero from './pages/Hero';
 import About from './pages/About';
@@ -9,9 +11,9 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { type Engine } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
-
-const App = () => {
+const AppContent = () => {
   const [init, setInit] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     initParticlesEngine(async (engine: Engine) => {
@@ -20,6 +22,10 @@ const App = () => {
       setInit(true);
     });
   }, []);
+
+  useEffect(() => {
+    document.title = t('meta.title');
+  }, [t]);
 
   const particlesOptions = {
     background: {
@@ -88,7 +94,7 @@ const App = () => {
   } as const;
 
   return (
-    <div className="font-sans min-h-screen bg-[#0a0a0a]">
+    <div className="font-sans min-h-screen" style={{ backgroundColor: 'var(--color-bg)' }}>
        {init && <Particles
         id="tsparticles"
         options={particlesOptions}
@@ -104,6 +110,16 @@ const App = () => {
         </main>
       </div>
     </div>
+  );
+};
+
+const App = () => {
+  return (
+    <ThemeProvider>
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
+    </ThemeProvider>
   );
 };
 

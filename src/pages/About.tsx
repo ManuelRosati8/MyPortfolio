@@ -1,20 +1,23 @@
 import React from 'react';
 import Section from '@/components/Section';
 import { Award, Cloud } from 'lucide-react';
+import { useT } from '../i18n/useTranslation';
 
 const About = () => {
+  const { t } = useT();
+
   return (
     <Section id="about">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-          Chi Sono<span className="text-orange-500">.</span>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: 'var(--color-text)' }}>
+          {t('about.heading')}<span className="text-orange-500">.</span>
         </h2>
-        <div className="space-y-4 text-neutral-300 leading-relaxed text-lg">
+        <div className="space-y-4 leading-relaxed text-lg" style={{ color: 'var(--color-text-secondary)' }}>
           <p>
-            Sviluppatore software dal 2021, specializzato in <span className="text-orange-400 font-medium">Angular</span> e nell'ecosistema <span className="text-orange-400 font-medium">TypeScript</span>, con esperienza anche lato backend. Il mio focus primario &egrave; il frontend: architetture a micro-frontend, applicazioni mobile ibride con Ionic, e piattaforme web complesse per la Pubblica Amministrazione e il settore fintech.
+            {t('about.p1')}
           </p>
           <p>
-            Lavoro a tutto tondo sullo stack — dal frontend Angular al backend in Java — ma &egrave; nell'esperienza utente e nella qualit&agrave; del codice frontend che do il meglio. Sono un sostenitore del codice pulito e dei test automatizzati (E2E con Cypress, unit e integration) per garantire soluzioni robuste e performanti.
+            {t('about.p2')}
           </p>
         </div>
 

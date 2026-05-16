@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useT } from '../i18n/useTranslation';
 
 const MotionDiv = motion.div;
 
 const Hero = () => {
+    const { t } = useT();
+
     const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
       e.preventDefault();
       const targetId = href.substring(1);
@@ -25,18 +28,18 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
       >
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
-          Ciao, sono <span className="text-orange-500">Manuel Rosati</span>.
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight" style={{ color: 'var(--color-text)' }}>
+          {t('hero.greeting')} <span className="text-orange-500">{t('hero.name')}</span>.
         </h1>
-        <p className="text-lg md:text-2xl text-neutral-300 max-w-3xl mx-auto mb-8">
-          Sviluppatore Full-Stack con la passione di trasformare idee complesse in codice elegante e funzionale.
+        <p className="text-lg md:text-2xl max-w-3xl mx-auto mb-8" style={{ color: 'var(--color-text-secondary)' }}>
+          {t('hero.tagline')}
         </p>
         <a
           href="#portfolio"
           onClick={(e) => handleScrollClick(e, '#portfolio')}
           className="bg-orange-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-orange-700 transition-transform duration-300 ease-in-out transform hover:scale-105 inline-block cursor-pointer"
         >
-          Scopri i miei lavori
+          {t('hero.cta')}
         </a>
       </MotionDiv>
     </section>
