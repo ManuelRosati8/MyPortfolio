@@ -15,11 +15,11 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   const longDescription = t(`project.${project.id}.longDescription`);
 
   return (
-    <article className="group relative flex h-[calc(100dvh-9rem)] flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-2xl shadow-neutral-300/40 transition-colors duration-300 hover:border-orange-500/50 dark:border-neutral-800 dark:bg-[#0b0b0b] dark:shadow-black/70 dark:hover:border-orange-500/50 md:h-[34rem]">
+    <article className="group relative flex min-h-[calc(100dvh-9rem)] flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-2xl shadow-neutral-300/40 transition-colors duration-300 hover:border-orange-500/50 dark:border-neutral-800 dark:bg-[#0b0b0b] dark:shadow-black/70 dark:hover:border-orange-500/50 md:min-h-[34rem]">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/70 to-transparent" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-orange-500/[0.07] via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
 
-      <div className="relative flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-y-contain p-5 sm:p-7 md:p-9">
+      <div className="relative flex flex-1 flex-col p-5 sm:p-7 md:p-9">
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
             <div className="mb-3 flex flex-wrap items-center gap-2">
