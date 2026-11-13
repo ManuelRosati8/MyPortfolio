@@ -7,7 +7,6 @@ import Hero from './pages/Hero';
 import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
-import AuroraBackground from './components/AuroraBackground';
 
 const AppContent = () => {
   const { t } = useLanguage();
@@ -17,8 +16,7 @@ const AppContent = () => {
   }, [t]);
 
   return (
-    <div className="font-sans min-h-screen bg-neutral-50 dark:bg-[#0a0a0a] transition-colors duration-300">
-      <AuroraBackground />
+    <div className="font-sans min-h-screen bg-neutral-50 transition-colors duration-300 dark:bg-[#0a0a0a]">
       <div className="relative z-10">
         <Header />
         <main>

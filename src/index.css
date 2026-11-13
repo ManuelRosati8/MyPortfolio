@@ -2,68 +2,40 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  background-color: #f9fafb;
+  color: #171717;
+}
+
+.dark body {
   background-color: #0a0a0a;
   color: #e5e5e5;
 }
 
-/*
- * Aurora Background — Stili per i 3 blob gradienti dello sfondo dinamico
- *
- * .aurora-blob:
- *   - position: absolute per il posizionamento libero nel contenitore
- *   - border-radius: 50% per forma circolare
- *   - filter: blur(100px+) crea l'effetto "alone" sfocato tipo nebulosa
- *   - will-change: transform suggerisce al browser di promuovere l'elemento
- *     al compositor layer (GPU) per animazioni fluide
- *   - opacity e transition per il cambio tema chiaro/scuro
- *   - mix-blend-mode: screen in dark mode fa "brillare" i blob sul nero
- *   - NOTA: rimossi @keyframes — il movimento è gestito da rAF in AuroraBackground.tsx
- */
-
-.aurora-blob {
-  position: absolute;
-  border-radius: 50%;
-  will-change: transform;
-  transition: opacity 0.6s ease;
+section[id] {
+  scroll-margin-top: 5.5rem;
 }
 
-.dark .aurora-blob {
-  mix-blend-mode: screen;
+.hero-grid {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
 }
 
-/*
- * Blob 1 — Il più grande (700px), arancione vivo
- * Centrato sul cursore, movimento lento (speed 0.025)
- */
-.blob-1 {
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle at center, #f97316 0%, transparent 70%);
-  filter: blur(100px);
-  opacity: 0.35;
+.stack-card {
+  position: sticky;
+  top: calc(4.75rem + var(--stack-offset-mobile, 0px));
 }
 
-/*
- * Blob 2 — Medio (600px), arancione scuro/ambrato
- * Centrato sul cursore, velocità intermedia (speed 0.05)
- */
-.blob-2 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle at center, #ea580c 0%, transparent 65%);
-  filter: blur(120px);
-  opacity: 0.3;
+@media (min-width: 768px) {
+  .stack-card {
+    top: calc(5.75rem + var(--stack-offset, 0px));
+  }
 }
 
-/*
- * Blob 3 — Il più piccolo (500px), arancione profondo
- * Centrato sul cursore, il più reattivo (speed 0.09)
- */
-.blob-3 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle at center, #c2410c 0%, transparent 70%);
-  filter: blur(90px);
-  opacity: 0.28;
+::selection {
+  background-color: rgb(249 115 22 / 0.28);
 }

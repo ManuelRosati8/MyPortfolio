@@ -19,7 +19,9 @@ const Contact = () => {
       </div>
       <div className="flex justify-center items-center gap-8">
         {SOCIAL_LINKS.map((link) => (
-          <SocialIcon key={link.href} icon={link.icon} href={link.href} />
+          <React.Fragment key={link.href}>
+            <SocialIcon icon={link.icon} href={link.href} />
+          </React.Fragment>
         ))}
       </div>
     </Section>

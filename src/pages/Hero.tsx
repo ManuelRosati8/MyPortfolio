@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import InteractiveGrid from '@/components/InteractiveGrid';
 import { useT } from '../i18n/useTranslation';
 
 const MotionDiv = motion.div;
@@ -21,9 +22,13 @@ const Hero = () => {
     };
 
   return (
-    <section id="home" className="flex items-center justify-center relative text-center overflow-hidden px-6 pt-32 pb-16 md:pt-40 md:pb-24">
+    <section
+      id="home"
+      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#faf9f6] px-6 pb-16 pt-32 text-center transition-colors duration-300 dark:bg-[#080808] md:pb-24 md:pt-40"
+    >
+      <InteractiveGrid />
       <MotionDiv
-        className="z-10 relative"
+        className="relative z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
