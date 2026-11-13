@@ -24,6 +24,17 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     } else {
       root.classList.remove('dark');
     }
+
+    root.style.colorScheme = theme;
+
+    let themeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    if (!themeColor) {
+      themeColor = document.createElement('meta');
+      themeColor.name = 'theme-color';
+      document.head.appendChild(themeColor);
+    }
+    themeColor.content = theme === 'dark' ? '#0a0a0a' : '#f9fafb';
+
     localStorage.setItem('theme', theme);
   }, [theme]);
 

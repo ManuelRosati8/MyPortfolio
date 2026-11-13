@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { MotionConfig } from 'framer-motion';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import Header from './components/Header';
@@ -34,7 +35,9 @@ const App = () => {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <AppContent />
+        <MotionConfig reducedMotion="user">
+          <AppContent />
+        </MotionConfig>
       </LanguageProvider>
     </ThemeProvider>
   );

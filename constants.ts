@@ -8,8 +8,8 @@ export const NAV_LINKS = [
 ];
 
 export const SOCIAL_LINKS = [
-  { icon: Github, href: 'https://github.com/ManuelRosati8' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/manuel-rosati-317bb2237/' },
+  { name: 'GitHub', icon: Github, href: 'https://github.com/ManuelRosati8' },
+  { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/manuel-rosati-317bb2237/' },
 ];
 
 export const PROJECTS: Project[] = [
@@ -20,7 +20,11 @@ export const PROJECTS: Project[] = [
     longDescription: '',
     tags: ['React', 'TypeScript', 'Full-Stack', 'Finance'],
     imageUrl: 'https://picsum.photos/seed/financerox/600/400',
+    videoUrl: '/media/demofinancerox.mp4',
+    videoPosterDark: '/media/sfondoblack.png',
+    videoPosterLight: '/media/sfondowithe.png',
     liveUrl: 'https://www.financerox.finance',
+    repoUrl: 'https://github.com/ManuelRosati8/financeRox',
   },
   {
     id: 2,

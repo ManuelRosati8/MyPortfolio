@@ -91,6 +91,7 @@ const InteractiveGrid = () => {
     let glowRadius = 260;
     let rafId = 0;
     let running = false;
+    let visible = true;
     let lastClient: { x: number; y: number } | null = null;
 
     const measure = () => {
@@ -196,15 +197,36 @@ const InteractiveGrid = () => {
 
     const animate = () => {
       if (!running) return;
-      pointer.x += (pointer.targetX - pointer.x) * 0.16;
-      pointer.y += (pointer.targetY - pointer.y) * 0.16;
-      pointer.strength += (pointer.targetStrength - pointer.strength) * 0.1;
+
+      const dx = pointer.targetX - pointer.x;
+      const dy = pointer.targetY - pointer.y;
+      const ds = pointer.targetStrength - pointer.strength;
+
+      pointer.x += dx * 0.16;
+      pointer.y += dy * 0.16;
+      pointer.strength += ds * 0.1;
+
+      const settled =
+        Math.abs(dx) < 0.3 &&
+        Math.abs(dy) < 0.3 &&
+        Math.abs(ds) < 0.01;
+
+      if (settled) {
+        pointer.x = pointer.targetX;
+        pointer.y = pointer.targetY;
+        pointer.strength = pointer.targetStrength;
+        draw();
+        running = false;
+        rafId = 0;
+        return;
+      }
+
       draw();
       rafId = requestAnimationFrame(animate);
     };
 
     const start = () => {
-      if (running || reducedMotion) return;
+      if (running || reducedMotion || !visible) return;
       running = true;
       rafId = requestAnimationFrame(animate);
     };
@@ -232,20 +254,24 @@ const InteractiveGrid = () => {
     const handlePointerMove = (event: PointerEvent) => {
       lastClient = { x: event.clientX, y: event.clientY };
       updatePointer(event.clientX, event.clientY, true);
+      start();
     };
 
     const handlePointerDown = (event: PointerEvent) => {
       lastClient = { x: event.clientX, y: event.clientY };
       updatePointer(event.clientX, event.clientY, true);
       pointer.strength = Math.max(pointer.strength, 0.65);
+      start();
     };
 
     const handleLeave = () => {
       pointer.targetStrength = 0;
+      start();
     };
 
     const handleScroll = () => {
       if (lastClient) updatePointer(lastClient.x, lastClient.y, true);
+      start();
     };
 
     const resizeObserver = new ResizeObserver(() => {
@@ -257,7 +283,8 @@ const InteractiveGrid = () => {
 
     const intersectionObserver = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) start();
+        visible = entry.isIntersecting;
+        if (visible) start();
         else stop();
       },
       { threshold: 0.01 },
